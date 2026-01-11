@@ -1,6 +1,18 @@
-name: Deploy- name: Debug connection
-  run: |
-    echo "Testing connection"
-    ssh -o StrictHostKeyChecking=no \
-      ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} "echo CONNECTED"
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Test echo
+        run: echo "CI/CD berjalan"
 

@@ -1,0 +1,6 @@
+name: Deploy- name: Debug connection
+  run: |
+    echo "Testing connection"
+    ssh -o StrictHostKeyChecking=no \
+      ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} "echo CONNECTED"
+
